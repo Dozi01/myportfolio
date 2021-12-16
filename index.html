@@ -6,27 +6,37 @@
 	<title>Yumin's Portfolio</title>
 	<meta name="description" content="Portfolio for Me">
 	<meta name="author" content="Yumin">
-	<link rel="icon" type="image/png" href="imgs/favicon.png" />
-	<script src="https://kit.fontawesome.com/33734bdd82.js"
-		crossorigin="anonymous">
-	</script>
+
+	<link rel="stylesheet" href="style.css">
+	
+	<!-- font link -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
+	<!-- icon link -->
+	<link rel="icon" type="image/png" href="imgs/favicon.png" />
+	<script src="https://kit.fontawesome.com/33734bdd82.js"
+		crossorigin="anonymous">
+	</script>
 </head>
 	
 <body>
 	<!-- Navbar -->
 	<nav id="navbar">
-		<div class="navbar__logo">
-			<i class="favicon"></i>
-			<a href="#">Yumin</a>
-
-		</div>
+		<a href="#">
+			<div class="navbar__logo">
+				<img class="favicon" src="imgs/favicon.png">
+				<h2>Yumin</h2>
+			</div>
+		</a>
 		
 			<ul class="navbar__menu">
-				<li class="navbar__menu__item">Home</li>
+				<li class="navbar__menu__item active">Home</li>
 				<li class="navbar__menu__item">About</li>
 				<li class="navbar__menu__item">Skills</li>
 				<li class="navbar__menu__item">PB plan</li>
