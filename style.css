@@ -123,7 +123,7 @@ p {
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-light-white);
 	cursor: pointer;
-		
+	transition: border 2s;
 	
 }
 .navbar__menu__item.active {
@@ -131,22 +131,28 @@ p {
 	border-bottom: 2px solid var(--color-black);
 }
 
-.navbar__menu__item:hover {
-	background-color: var(--color-black);
-	border-radius: var(--size-border-radius);
+.navbar__menu__item:after {
+	display: block;
+	content= '';
+	border-bottom: 2px solid var(--color-black);
+	transform: scaleX(0);
+	transition: transform 250ms ease-in-out;
+}
+.navbar__menu__item:hover:after{
+	transform: scaleX(1);
 }
 
 /* Home */
 
 #home {
-	background-image:url('imgs/home-background.png');
+	background-image: url('imgs/home-background.png');
 }
 
 
 
-
-
-
+#home img{
+	width:50px;
+}
 
 
 
