@@ -27,7 +27,6 @@
 	--weight-semi-bold: 700;
 	--weight-regular: 400;
 	
-	--size-border-radius: 4px;
 }
 
 /* Universal tags */
@@ -37,13 +36,21 @@
 	padding:0;
 }
 
-a {
-	text-decoration-line: none;
-}
 
 body {
 	font-family: 'Nanum Gothic', sans-serif;
 	cursor: default;
+}
+
+button{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+a {
+	text-decoration-line: none;
 }
 
 /* Typography */
@@ -85,7 +92,7 @@ p {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: var(--color-grey);
+	background-color: var(--color-black);
 	position: sticky;
 	top: 0px;
 	height: 60px;
@@ -115,10 +122,10 @@ p {
 }
 
 .navbar__menu__item{
-	padding: 10px 30px;
+	padding: 8px 24px;
 	border-width: 0 0 0 2px;
 	border-style: solid;
-	border-color: var(--color-black);
+	border-color: var(--color-light-white);
 	font-size: var(--font-regular);
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-light-white);
@@ -127,18 +134,18 @@ p {
 	
 }
 .navbar__menu__item.active {
-	border-top: 2px solid var(--color-black);
-	border-bottom: 2px solid var(--color-black);
+	border-top: 2px solid var(--color-light-white);
+	border-bottom: 2px solid var(--color-light-white);
 }
 
 .navbar__menu__item:after {
 	display: block;
 	content: '';
-	border-bottom: 2px solid var(--color-black);
+	border-bottom: 2px solid var(--color-light-white);
 	transform: scaleX(0);
 	transition: transform 250ms ease-in-out;
 	position: relative;
-	top:12px;
+	top:10px;
 }
 .navbar__menu__item:hover:after{
 	transform: scaleX(1);
@@ -147,16 +154,42 @@ p {
 /* Home */
 
 #home {
-	background-image: url('imgs/home-background.png');
+	background: url('imgs/home-background.png') center/cover no-repeat;
+	padding: 40px;
+	text-align: center;
+
+
 }
 
 
 
 #home img{
-	width:50px;
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid var(--color-white);
+	margin:32px 0;
 }
 
 
+.home__title{
+	margin: 40px;
+}
+
+.home__description{
+	margin-bottom: 40px;
+}
+
+#home button{
+	padding: 12px;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: var(--font-small);
+	font-weight: var(--weight-semi-bold);
+	color: var(--color-black);
+	border: 2px solid var(--color-black);
+	border-radius: 4px;
+}
 
 
 
