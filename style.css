@@ -133,7 +133,7 @@ p {
 
 .navbar__menu__item:after {
 	display: block;
-	content= '';
+	content: '';
 	border-bottom: 2px solid var(--color-black);
 	transform: scaleX(0);
 	transition: transform 250ms ease-in-out;
