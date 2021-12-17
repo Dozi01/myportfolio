@@ -137,6 +137,8 @@ p {
 	border-bottom: 2px solid var(--color-black);
 	transform: scaleX(0);
 	transition: transform 250ms ease-in-out;
+	position: relative;
+	top:12px;
 }
 .navbar__menu__item:hover:after{
 	transform: scaleX(1);
