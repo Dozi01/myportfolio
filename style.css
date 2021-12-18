@@ -460,7 +460,7 @@ p {
 /* Testimonials */
 
 #testimonials {
-	background-color: var(--color-dark-white);
+	background-color: var(--color-light-white);
 	max-width: none;
 	padding: 0;
 }
@@ -514,12 +514,50 @@ p {
 	margin-right: 8px;
 }
 
+/* Contact */
+
+#contact {
+	max-width: none;
+	height: auto;
+	background-color: var(--color-sky);
+	
+}
+.contact__container {
+	max-width: 1200px;
+	margin: auto;
+	padding: 40px;
+}
 
 
+.contact__title {
+	margin: 8px;
+}
 
+.contact__email {
+	margin-top: 24px;
+}
 
+.contact__links {
+	font-size: var(--font-large);
+	margin-top: 24px;
+}
 
+.contact__links i {
+	transition: all var(--animation-duration) ease;
+}
 
+.contact__links i:hover{
+	transform: scale(1.1);
+}
+
+.contact__rights {
+	margin-top: 18px;
+}
+
+.image__rights {
+	margin-top: 18px;
+	font-size: var(--font-micro);
+}
 
 
 
