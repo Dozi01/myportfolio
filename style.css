@@ -21,8 +21,8 @@
 	/* Font size */
 	--font-large: 48px;
 	--font-medium: 28px;
+	--font-small: 24px;
 	--font-regular: 18px;
-	--font-small: 16px;
 	--font-micro: 14px;
 
 	/* Font weight */
@@ -55,7 +55,7 @@ section {
 	padding: 40px;
 	text-align: center;
 	max-width: 1200px;
-	height:887px;
+	min-height: 887px;
 	margin: 0 auto;
 }
 
@@ -75,8 +75,6 @@ a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:focus { text-decoration: none; }
 a:hover, a:active { text-decoration: none; }
-
-출처: https://nine01223.tistory.com/180 [스프링연구소(spring-lab)]
 
 li {
 	list-style: none;
@@ -100,7 +98,7 @@ h2 {
 }
 
 h3 {
-	font-size: var(--font-regular);
+	font-size: var(--font-small);
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-black);
 	margin: 8px 0;
@@ -210,7 +208,7 @@ p {
 #home button{
 	padding: 12px;
 	font-family: 'Nanum Gothic', sans-serif;
-	font-size: var(--font-small);
+	font-size: var(--font-regular);
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-white);
 	border: 2px solid var(--color-white);
@@ -301,7 +299,7 @@ p {
 .skillset {
 	display: grid;
 	margin: 40px;
-	grid-template-columns: 0.6fr 0.4fr;
+	grid-template-columns: 0.7fr 0.3fr;
 	
 }
 
@@ -334,10 +332,12 @@ p {
 	margin-bottom: 32px;
 }
 
+
+
+
 .skill__info {
 	display: flex;
 	justify-content: space-between;
-	font-size: var(--font-micro);
 }
 
 
@@ -370,7 +370,7 @@ p {
 }
 
 .category__btn {
-	font-size: var(--font-small);
+	font-size: var(--font-regular);
 	font-weight: var(--weight-regular);
 	color: var(--color-black);
 	padding: 4px;
@@ -378,6 +378,8 @@ p {
 	flex-grow: 1;
 	border: 1px solid var(--color-grey);
 	border-radius: var(--border-radius);
+	
+	position: relative;
 }
 
 .category__btn:hover,
@@ -396,9 +398,9 @@ p {
 	color: var(--color-light-white);
 	background-color: var(--color-dark-blue);
 	border-radius: 50%;
-	position: relative;
-	top: -20px;
-	left: 4px;
+	position: absolute;
+	top: -15px;
+	left: 70%;
 	opacity: 0;
 	transition: all var(--animation-duration) ease;
 }
@@ -406,7 +408,7 @@ p {
 .category__btn:hover .category__count,
 .category__btn.active .category__count{
 	opacity: 1;
-	top: 0;
+	top: 5px;
 }
 
 .work__projects {
@@ -417,6 +419,10 @@ p {
 	align-items: center;
 }
 
+.work__projects h3{
+	font-size: var(	--font-regular);
+}
+	
 .project {
 	padding: 0;
 	width: 250px;
@@ -518,6 +524,7 @@ p {
 
 #contact {
 	max-width: none;
+	min-height: unset;
 	height: auto;
 	background-color: var(--color-sky);
 	
