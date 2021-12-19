@@ -10,9 +10,9 @@
 	--color-dark-grey: #4d4d4d;
 	--color-grey: #616161;
 	--color-light-grey: #7c7979;
-	--color-blue: #1a237e;
-	--color-light-blue: #534bae;
-	--color-dark-blue: #000051;
+	--color-blue: #495466;
+	--color-light-blue: #363d48;
+	--color-dark-blue: #0f131c;
 	--color-sky: #bbdefb;
 	--color-yellow: #fff7d1;
 	--color-orange: #feb546;
@@ -21,8 +21,8 @@
 	/* Font size */
 	--font-large: 48px;
 	--font-medium: 28px;
-	--font-small: 24px;
-	--font-regular: 18px;
+	--font-regular: 24px;
+	--font-small: 18px;
 	--font-micro: 14px;
 
 	/* Font weight */
@@ -69,7 +69,7 @@ button{
 a {
 	text-decoration-line: none;
 	text-decoration: none;
-	color: var(--color-blue);
+	color: var(--color-black);
 }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
@@ -98,14 +98,14 @@ h2 {
 }
 
 h3 {
-	font-size: var(--font-small);
+	font-size: var(--font-regular);
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-black);
 	margin: 8px 0;
 }
 
 p {
-	font-size: var(--font-regular);
+	font-size: var(--font-small);
 	font-weight: var(--weight-regular);
 	color: var(--color-black);
 	margin: 4px 0;
@@ -131,6 +131,7 @@ p {
 .navbar__logo{
 	display: flex;
 	align-items:center;
+	padding: 5px 0;
 }
 .navbar__logo h2{
 	margin: 0;
@@ -153,7 +154,7 @@ p {
 	border-width: 0 0 0 1px;
 	border-style: solid;
 	border-color: var(--color-light-white);
-	font-size: var(--font-regular);
+	font-size: var(--font-small);
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-light-white);
 	cursor: pointer;
@@ -178,6 +179,16 @@ p {
 .navbar__menu__item:hover:after{
 	transform: scaleX(1);
 }
+
+.navbar__toggle-btn {
+	font-size: var(--font-small);
+	color: var(--color-white);
+	position: absolute;
+	right: 32px;
+	top: 20px;
+	display: none;
+}
+
 
 /* Home */
 
@@ -208,7 +219,7 @@ p {
 #home button{
 	padding: 12px;
 	font-family: 'Nanum Gothic', sans-serif;
-	font-size: var(--font-regular);
+	font-size: var(--font-small);
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-white);
 	border: 2px solid var(--color-white);
@@ -370,7 +381,7 @@ p {
 }
 
 .category__btn {
-	font-size: var(--font-regular);
+	font-size: var(--font-small);
 	font-weight: var(--weight-regular);
 	color: var(--color-black);
 	padding: 4px;
@@ -420,20 +431,20 @@ p {
 }
 
 .work__projects h3{
-	font-size: var(	--font-regular);
+	font-size: var(	--font-small);
 }
 	
 .project {
 	padding: 0;
 	width: 250px;
-	margin: 8px;
+	margin: 12px;
 	position: relative;
 	transition: all var(--animation-duration) ease;
 }
 .project img{
 	width: 100%;
 	object-fit: contain;
-	border: 2px solid var(--color-sky);
+	border: 1px solid var(--color-light-blue);
 	border-radius: var(--border-radius-large);
 }	
 
@@ -526,7 +537,7 @@ p {
 	max-width: none;
 	min-height: unset;
 	height: auto;
-	background-color: var(--color-sky);
+	background-color: var(--color-dark-white);
 	
 }
 .contact__container {
@@ -553,6 +564,7 @@ p {
 	transition: all var(--animation-duration) ease;
 }
 
+
 .contact__links i:hover{
 	transform: scale(1.1);
 }
@@ -565,6 +577,113 @@ p {
 	margin-top: 18px;
 	font-size: var(--font-micro);
 }
+
+
+/* PC (해상도 1024px)*/
+
+@media all and (min-width:1024px) {
+	
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) {
+	
+}
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) {
+	
+	:root {
+	/* Font size */
+	--font-large: 40px;
+	--font-medium: 24px;
+	--font-regular: 18px;
+	--font-small: 14px;
+	--font-micro: 12px;
+	}
+	
+	#navbar {
+		flex-direction: column;
+		align-items: flex-start;
+		
+	}
+	.navbar__menu {
+		flex-direction: column;
+		width: 100%;
+		align-items: center;
+		background-color: var(--color-black);
+		padding-bottom: 8px;
+		display: none;	
+	}
+	
+	.navbar__menu__item {
+		width: 90%;
+		line-height: 2;
+		text-align: center;
+		padding: 0;
+		border: 0;
+		margin-bottom: 4px;
+		border-radius: var(--border-radius);
+		transition: all var(--animation-duration) ease;
+	}
+	.navbar__menu__item.active {
+		border: 0;
+		background-color: var(--color-light-blue);
+	}
+	
+	.navbar__menu__item:after{
+		display: none;
+	}
+	
+	.navbar__menu__item:hover {
+		background-color: var(--color-light-blue);
+	}
+	
+	.navbar__toggle-btn{
+		display: block;
+	}
+	
+	/* About me */
+	.about__jobs {
+		flex-direction: column;
+		margin: 40px 0;
+	}
+	
+	.job {
+		margin-bottom: 12px;
+	}
+	
+	.job__description {
+		width: auto;
+	}
+	
+	/* Skills */
+	.skillset {
+		margin: 40px 0;
+	}
+	
+	.skillset__skill {
+		grid-column:1 / span 2;
+	}
+	
+	.skillset__skill, .skillset__tools, .skillset__etc {
+		border-radius: 0;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
