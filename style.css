@@ -181,7 +181,7 @@ p {
 }
 
 .navbar__toggle-btn {
-	font-size: var(--font-small);
+	font-size: 20px;
 	color: var(--color-white);
 	position: absolute;
 	right: 32px;
@@ -395,7 +395,7 @@ p {
 
 .category__btn:hover,
 .category__btn.active{
-	background-color: var(--color-light-blue);
+	background-color: var(--color-dark-blue);
 	color: var(--color-light-white);
 }
 
@@ -407,11 +407,11 @@ p {
 	font-size: var(--font-micro);
 	font-weight: var(--weight-regular);
 	color: var(--color-light-white);
-	background-color: var(--color-dark-blue);
+	background-color: var(--color-light-grey);
 	border-radius: 50%;
 	position: absolute;
 	top: -15px;
-	left: 70%;
+	right: 10%;
 	opacity: 0;
 	transition: all var(--animation-duration) ease;
 }
@@ -537,6 +537,7 @@ p {
 	max-width: none;
 	min-height: unset;
 	height: auto;
+	padding: 0;
 	background-color: var(--color-dark-white);
 	
 }
@@ -579,18 +580,9 @@ p {
 }
 
 
-/* PC (해상도 1024px)*/
 
-@media all and (min-width:1024px) {
-	
-}
 
-/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
-@media all and (min-width:768px) and (max-width:1023px) {
-	
-}
-/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
-@media all and (max-width:767px) {
+@media all and (max-width:1024px) {
 	
 	:root {
 	/* Font size */
@@ -667,6 +659,40 @@ p {
 	
 	.skillset__skill, .skillset__tools, .skillset__etc {
 		border-radius: 0;
+	}
+	.skillset__skill {
+	border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+	}
+	.skillset__tools {
+	border-radius: 0 0 0 var(--border-radius-large);
+	}		
+	.skillset__etc {
+	border-radius: 0 0 var(--border-radius-large) 0;
+	}
+	
+	/* PB plan */
+	
+	.plan__categories {
+		width: auto;
+	}
+	
+	.category__count {
+		width: 14px;
+		height: 14px;
+		line-height: 14px;
+		right: 5px;
+	}
+	
+	/* Testimonials */
+	
+	.testimonial, .testimonial:last-child {
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+	.testimonial__speech-bubble {
+		margin: 0;
 	}
 	
 }
