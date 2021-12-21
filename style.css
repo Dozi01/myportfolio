@@ -55,7 +55,7 @@ section {
 	padding: 40px;
 	text-align: center;
 	max-width: 1200px;
-	min-height: 887px;
+	min-height: 100%;
 	margin: 0 auto;
 }
 
@@ -118,14 +118,16 @@ p {
 
 
 #navbar{
-	display: flex;
+  display: flex;
+  width: 100%;
 	justify-content: space-between;
 	align-items: center;
-	background-color: var(--color-black);
-	position: sticky;
+	background-color: transparent;
+	position: fixed;
 	top: 0px;
 	height: 60px;
 	z-index: 2;
+  transition: all var(--animation-duration) ease;
 }
 
 .navbar__logo{
@@ -151,9 +153,7 @@ p {
 
 .navbar__menu__item{
 	padding: 8px 24px;
-	border-width: 0 0 0 1px;
-	border-style: solid;
-	border-color: var(--color-light-white);
+	border-left: 1px solid var(--color-light-white);
 	font-size: var(--font-small);
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-light-white);
@@ -169,11 +169,11 @@ p {
 .navbar__menu__item:after {
 	display: block;
 	content: '';
-	border-bottom: 2px solid var(--color-light-white);
+	border-bottom: 1px solid var(--color-light-white);
 	transform: scaleX(0);
 	transition: transform var(--animation-duration) ease-in-out;
 	position: relative;
-	top:10px;
+	top:9px;
 }
 
 .navbar__menu__item:hover:after{
@@ -202,7 +202,7 @@ p {
 	height: 300px;
 	border-radius: 50%;
 	object-fit: cover;
-	margin:48px 0;
+	margin: 100px 0;
 	box-shadow: 5px 5px 10px var(--color-black);
 }
 
