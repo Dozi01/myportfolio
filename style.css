@@ -126,7 +126,7 @@ p {
 	position: fixed;
 	top: 0px;
 	height: 60px;
-	z-index: 2;
+	z-index: 1000;
   transition: all var(--animation-duration) ease;
 }
 
@@ -224,7 +224,7 @@ p {
 	color: var(--color-white);
 	border: 2px solid var(--color-white);
 	border-radius: var(--border-radius);
-	margin-top: 100px;
+	
 }
 
 /* About me */
@@ -474,15 +474,15 @@ p {
 }
 
 
-/* Testimonials */
+/* Friends */
 
-#testimonials {
+#friends {
 	background-color: var(--color-light-white);
 	max-width: none;
 	padding: 0;
 }
 
-.testimonials__container {
+.friends__container {
 	max-width: 1200px;
 	margin: auto;
 	padding: 40px;
@@ -493,16 +493,16 @@ p {
 }
 
 
-.testimonial {
+.friend {
 	display: flex;
 }
 
-.testimonial:last-child{
+.friend:last-child{
 	flex-direction: row-reverse;
 }
 
 
-.testimonial__avatar{
+.friend__avatar{
 	width: 200px;
 	height: 200px;
 	margin: 20px;
@@ -510,7 +510,7 @@ p {
 	box-shadow: 5px 5px 10px var(--color-black);
 }
 
-.testimonial__speech-bubble {
+.friend__speech-bubble {
 	padding: 20px;
 	margin: 20px;
 	border: 2px solid var(--color-grey);
@@ -518,7 +518,7 @@ p {
 	border-radius: var(--border-radius-large);
 }
 
-.testimonial__speech-bubble p{
+.friend__speech-bubble p{
 	line-height: 1.8;	
 }
 
