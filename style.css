@@ -413,6 +413,7 @@ p {
 	position: absolute;
 	top: -15px;
 	right: 10%;
+  pointer-events:none;
 	opacity: 0;
 	transition: all var(--animation-duration) ease;
 }
@@ -429,6 +430,8 @@ p {
 	margin: 40px 0;
 	justify-content: center;
 	align-items: center;
+  transition: all var(--animation-duration) ease;
+  opacity: 1;
 }
 
 .work__projects h3{
@@ -440,8 +443,14 @@ p {
 	width: 250px;
 	margin: 12px;
 	position: relative;
-	transition: all var(--animation-duration) ease;
+	display: none;
+
 }
+
+.project.active {
+  display: block;
+}
+
 .project img{
 	width: 100%;
 	object-fit: contain;
@@ -595,15 +604,6 @@ p {
   transform: translatey(100px);
 }
 
-
-
-.up__btn{
-  
-}
-
-.down__btn{
-  
-}
 
 @media all and (max-width:1024px) {
 	

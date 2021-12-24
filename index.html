@@ -208,20 +208,22 @@
 		<br>Role Models</h2>
 		
 		<div class="plan__categories">
-			<button class="category__btn active">
+			<button class="category__btn active" data-projectmenu="all">
 				All<span class="category__count">8</span></button>
-			<button class="category__btn">
+			<button class="category__btn" data-projectmenu="youtube">
 				Youtube<span class="category__count">4</span></button>
-			<button class="category__btn">
+			<button class="category__btn" data-projectmenu="naverblog">
 				Naver<span class="category__count">3</span></button>
-			<button class="category__btn">
+			<button class="category__btn" data-projectmenu="github">
 				Github<span class="category__count">1</span></button>
 		</div>
 		
 		<div class="work__projects">
-			<a
+			
+      <a
 			  href="https://www.youtube.com/c/%EC%8A%88%EC%B9%B4%EC%9B%94%EB%93%9C"
-			  class="project"
+			  class="project active"
+        data-platform="youtube"
 			  target="blank"
 			>
 				<img src="imgs/project/youtubesuka.png" alt="youtube SukaWorld screenshot">
@@ -230,9 +232,11 @@
 					<span>Economy issue teller</span>
 				</div>
 			</a>
+      
 			<a
 			  href="https://www.youtube.com/c/%EB%93%9C%EB%A1%9C%EC%9A%B0%EC%95%A4%EB%93%9C%EB%A5%98"
-			  class="project"
+			  class="project active"
+        data-platform="youtube"
 			  target="blank"
 			>
 				<img src="imgs/project/youtubeandrew.png" alt="youtube drowEndrew screenshot">
@@ -241,9 +245,11 @@
 					<span>Oneman company, life advice</span>
 				</div>
 			</a>
+      
 			<a
 			  href="https://www.youtube.com/c/%EB%B6%80%EB%8F%99%EC%82%B0%EC%9D%BD%EC%96%B4%EC%A3%BC%EB%8A%94%EB%82%A8%EC%9E%90"
-			  class="project"
+			  class="project active"
+        data-platform="youtube"
 			  target="blank"
 			>
 				<img src="imgs/project/youtuberealesreader.png" alt="youtube real-estate reader screenshot">
@@ -252,9 +258,11 @@
 					<span>Real-estate annalyst</span>
 				</div>
 			</a>
+      
 			<a
 			  href="https://www.youtube.com/c/%EB%93%9C%EB%A6%BC%EC%BD%94%EB%94%A9by%EC%97%98%EB%A6%AC/featured"
-			  class="project"
+			  class="project active"
+        data-platform="youtube"
 			  target="blank"
 			>
 				<img src="imgs/project/youtubeEllie.png" alt="Ellie youtube">
@@ -263,9 +271,11 @@
 					<span>Coder & instructor (Nomadcoder)</span>
 				</div>
 			</a>
+      
 			<a
 			  href="http://elium-pohang.co.kr/"
-			  class="project"
+			  class="project active"
+        data-platform="naverblog"
 			  target="blank"
 			>
 				<img src="imgs/project/pohangAd.png" alt="Pohang elium advertisement website">
@@ -274,9 +284,11 @@
 					<span>Website development</span>
 				</div>
 			</a>
+      
 			<a
 			  href="https://blog.naver.com/kjm2336/222589290934"
-			  class="project"
+			  class="project active"
+        data-platform="naverblog"
 			  target="blank"
 			>
 				<img src="imgs/project/blogreal-estate.png" alt="Real-estate blog screenshot">
@@ -285,9 +297,11 @@
 					<span>분석 자료 만들기</span>
 				</div>
 			</a>
+      
 			<a
 			  href="https://blog.naver.com/duswnswlstlf/222560189991"
-			  class="project"
+			  class="project active"
+        data-platform="naverblog"
 			  target="blank"
 			>
 				<img src="imgs/project/blogstock.png" alt="">
@@ -296,9 +310,11 @@
 					<span>주식 분석 자료, 인사이트 공유</span>
 				</div>
 			</a>
+      
 			<a
 			  href="https://github.com/Dozi01/myportfolio"
-			  class="project"
+			  class="project active"
+        data-platform="github"
 			  target="blank"
 			>
 				<img src="imgs/project/github.png" alt="github screenshot">
@@ -307,6 +323,7 @@
 					<span>myportfolio project github link</span>
 				</div>
 			</a>
+      
 			
 		</div>
 	</section>	
@@ -315,7 +332,7 @@
 	<section id="friends">
 	<div class="friends__container">
 		<h1>Friends</h1>
-		<h2>See what they say about me</h2>
+		<h2>Who are my friends</h2>
 		
 		<div class="mention">
 			<div class="friend">
@@ -324,7 +341,7 @@
 					<p>
             99년생 <u>돼지</u> 술집 부점장님.
 					</p>
-					<p class="name"><a href=""><i class="fab fa-github"></i>김강민</a>/ 298포병 대대</p>
+					<p class="name"><a href=""><i class="fab fa-instagram"></i>김강민</a>/ 298포병 대대</p>
 				</div>
 			</div>
 			<div class="friend">
@@ -354,10 +371,11 @@
 			<a href="https://github.com/Dozi01" target="blank">
 				<i class="fab fa-github"></i></a>
 			<a href="https://kr.linkedin.com/" target="blank">
-				<i class="fa fa-linkedin-square"></i></a>
+				<i class="fab fa-instagram"></i></a>
 		</div>
 		<p class="contact__rights">2021 protfolio clon coding Yumin with Ellie</p>
-		<div class="image__rights">
+		
+    <div class="image__rights">
 			Icons made by 
 			<a href="https://www.flaticon.com/authors/linector" 
 			   title="Linector" target="blank">Linector
@@ -372,7 +390,7 @@
   
   <!-- Arrow button -->
   <button class = "arrow__btn" data-link="#home">
-    <i class="fas fa-angle-double-up up__btn" data-link="#home"></i>
+    <i class="fas fa-angle-double-up" ></i>
   </button>
 	
 </body>

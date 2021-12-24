@@ -43,7 +43,44 @@ contactbtn.addEventListener('click', () => {
 });
 
 arrowbtn.addEventListener('click', () => {
-  scrollIntoView(event.target);
+  scrollIntoView(event.currentTarget);
+});
+
+
+// Make project button filter projects
+
+const categorybtn = document.querySelector('.plan__categories');
+const project = document.querySelectorAll('.project');
+
+
+categorybtn.addEventListener('click', () => {
+  const target = event.target;
+  
+  if(target == categorybtn){
+    return;
+  }
+  
+  const projectmenu = target.dataset.projectmenu;
+  let platform;
+
+  for(var i = 0; i < project.length; i++){
+    platform = project[i].dataset.platform;
+    if(projectmenu == platform){
+      project[i].classList.toggle('active', true);
+    }
+    else if(projectmenu =='all'){
+      project[i].classList.toggle('active', true);
+    }
+    else{
+      project[i].classList.toggle('active', false);
+    }
+  }
+  
+  // Make categorybtn active 
+  const categorybtnactive = document.querySelector('.category__btn.active');
+  categorybtnactive.classList.toggle('active');
+  target.classList.toggle('active');
+  
 });
 
 
