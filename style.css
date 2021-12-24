@@ -580,8 +580,30 @@ p {
 	font-size: var(--font-micro);
 }
 
+.arrow__btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-blue);
+  font-size: var(--font-regular);
+  font-weight: 900;
+  color: var(--color-light-white);
+  transition: transform var(--animation-duration) ease;
+  transform: translatey(100px);
+}
 
 
+
+.up__btn{
+  
+}
+
+.down__btn{
+  
+}
 
 @media all and (max-width:1024px) {
 	
@@ -593,7 +615,11 @@ p {
 	--font-small: 14px;
 	--font-micro: 12px;
 	}
-	
+  
+  section {
+    min-height: unset;
+  }
+  
 	#navbar {
 		flex-direction: column;
 		align-items: flex-start;
