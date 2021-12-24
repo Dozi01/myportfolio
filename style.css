@@ -197,7 +197,7 @@ p {
 	background: url('imgs/main_v10.jpg') center/cover no-repeat;
 }
 
-#home img{
+.profile_img{
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
@@ -209,6 +209,7 @@ p {
 .home__title{
 	margin-bottom: 32px;
 	color: var(--color-white);
+  
 }
 
 .home__description{
@@ -685,13 +686,13 @@ p {
 	
 	/* Testimonials */
 	
-	.testimonial, .testimonial:last-child {
+	.friend, .friend:last-child {
 		flex-direction: column;
 		align-items: center;
 		margin-bottom: 20px;
 	}
 
-	.testimonial__speech-bubble {
+	.friend__speech-bubble {
 		margin: 0;
 	}
 	
