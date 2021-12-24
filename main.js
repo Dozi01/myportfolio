@@ -20,11 +20,22 @@ document.addEventListener('scroll', () => {
 // Make navbar item point each section
 
 const navbarmenu = document.querySelector('.navbar__menu');
-
+const contactbtn = document.querySelector('#home button');
 
 navbarmenu.addEventListener('click', () => {
   const target = event.target;
-  const link = target.dataset.link;
+  scrollIntoView(target);
+});
+
+contactbtn.addEventListener('click', () => {
+  const target = event.target;
+  scrollIntoView(target);
+});
+
+function scrollIntoView (selector) {
+  
+  const link = selector.dataset.link;
+  console.log(link);
   
   if (link == null){
     return;
@@ -32,7 +43,5 @@ navbarmenu.addEventListener('click', () => {
   
   const scrollTo = document.querySelector(link);
   scrollTo.scrollIntoView({behavior:"smooth"});
-  
-});
-
+}
 
