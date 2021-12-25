@@ -2,98 +2,124 @@
 
 
 // Make navbar transparent on the top
-// Make homeContainer slowly fade down as the window scrolls down
-// Make arrowbtn show when as the window scrolls down
-
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
+
+// Make homeContainer slowly fade down as the window scrolls down
 const homeContainer = document.querySelector('.home__container');
 const homeContainerHeight = homeContainer.getBoundingClientRect().height;
-const arrowbtn = document.querySelector('.arrow__btn');
+
+// Make arrowBtn show when as the window scrolls down
+const arrowBtn = document.querySelector('.arrow__btn');
+
+// Make navbar menu interact as the window scrolls down
+const section = document.querySelectorAll('section');
+const sectionYPosition = [];
+
+// Make navbar item, contactBtn, arrowBtn point each section
+const navbarMenu = document.querySelector('.navbar__menu');
+const navbarMenuItem = document.querySelectorAll('.navbar__menu__item');
+const contactBtn = document.querySelector('#home button');
+
+
+// responsive web에서 sectionYPosition이 정상적이지 않은 오류가 있음.
+for(var i = 0; i < section.length; i++){
+  var rect = section[i
+                    ].getBoundingClientRect();
+  sectionYPosition[i] = rect.top + window.scrollY - 100;
+}
+
 
 document.addEventListener('scroll', () => {
   if(window.scrollY > navbarHeight)
-    navbar.style.backgroundColor = 'black';
-  
+    navbar.classList.toggle('ontop', false);
   else
-    navbar.style.backgroundColor = 'transparent';
+    navbar.classList.toggle('ontop', true);
   
-    homeContainer.style.opacity = 1 - window.scrollY/homeContainerHeight;
+  homeContainer.style.opacity = 1 - window.scrollY/homeContainerHeight;
     
   if(window.scrollY > 300)
-    arrowbtn.style.transform = 'none';
+    arrowBtn.style.transform = 'none';
   else
-    arrowbtn.style.transform = 'translatey(100px)';
+    arrowBtn.style.transform = 'translatey(100px)';
   
+  for(var i = 0; i < section.length; i++){
+    const navbarMenuActive = document.querySelector('.navbar__menu__item.active');
+    if(window.scrollY >= sectionYPosition[i]){
+      navbarMenuActive.classList.toggle('active', false);
+      navbarMenuItem[i].classList.toggle('active', true);
+    }
+    else if(window.scrollY >= 4100){
+      navbarMenuActive.classList.toggle('active', false);
+      navbarMenuItem[5].classList.toggle('active', true);
+    }
+  }
+
 });
 
 
-// Make navbar item, contactbtn, arrowbtn point each section
 
 
-const navbarmenu = document.querySelector('.navbar__menu');
-const contactbtn = document.querySelector('#home button');
 
-navbarmenu.addEventListener('click', () => {
+// Make navbar item, contactBtn, arrowBtn point each section
+
+navbarMenu.addEventListener('click', () => {
   scrollIntoView(event.target);
 });
 
-contactbtn.addEventListener('click', () => {
+contactBtn.addEventListener('click', () => {
   scrollIntoView(event.target);
 });
 
-arrowbtn.addEventListener('click', () => {
+arrowBtn.addEventListener('click', () => {
   scrollIntoView(event.currentTarget);
 });
 
 
 // Make project button filter projects
 
-const categorybtn = document.querySelector('.plan__categories');
+const categoryBtn = document.querySelector('.plan__categories');
 const project = document.querySelectorAll('.project');
-const projectcontainer = document.querySelector('.work__projects');
+const projectContainer = document.querySelector('.work__projects');
 
 
-categorybtn.addEventListener('click', () => {
+categoryBtn.addEventListener('click', () => {
   const target = event.target;
-  
-  if(target === categorybtn){
+  if(target === categoryBtn){
     return;
   }
-
   
-  const projectmenu = target.dataset.projectmenu;
+  const filterNow = projectContainer.dataset.filter;
+  const filter = target.dataset.filter;
+  if(filter === filterNow){
+    return;
+  }
+  projectContainer.setAttribute('data-filter', filter);
+  
+  
   let platform;
-
-  projectcontainer.style.transform = 'scale(0)';
   window.setTimeout(function(){ 
-    for(var i = 0; i < project.length; i++){
-      platform = project[i].dataset.platform;
-      if(projectmenu === platform){
-        project[i].classList.toggle('invisible', false);
-      }
-      else if(projectmenu ==='all'){
-        project[i].classList.toggle('invisible', false);
+    project.forEach((project) => {
+      platform = project.dataset.platform;
+      if(filter === platform || filter ==='all'){
+        project.classList.toggle('invisible', false);
       }
       else{
-        project[i].classList.toggle('invisible', true);
+        project.classList.toggle('invisible', true);
       }
-    }
-  },150); // timed to match animation-duration
-  
-  
-  // Make categorybtn active 
-  const categorybtnactive = document.querySelector('.category__btn.active');
-  categorybtnactive.classList.toggle('active');
+    });
+  },150);
+    
+  // Make categoryBtn active 
+  const categoryBtnActive = document.querySelector('.category__btn.active');
+  categoryBtnActive.classList.toggle('active');
   target.classList.toggle('active');
   
   // projects animation
+  projectContainer.style.transform = 'scale(0)';
   window.setTimeout(function(){
-     projectcontainer.style.transform = 'scale(1)';
-  },150); // timed to match animation-duration
-  
-  console.log(projectcontainer);
-  
+     projectContainer.style.transform = 'scale(1)';
+  },150);
 });
 
 

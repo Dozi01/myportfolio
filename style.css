@@ -122,13 +122,16 @@ p {
   width: 100%;
 	justify-content: space-between;
 	align-items: center;
-	background-color: transparent;
+	background-color: var(--color-black);
 	position: fixed;
 	top: 0px;
 	height: 60px;
 	z-index: 1000;
   transition: all var(--animation-duration) ease;
 }
+  #navbar.ontop{
+    background: transparent;
+  }
 
 .navbar__logo{
 	display: flex;
@@ -148,7 +151,7 @@ p {
 
 .navbar__menu{
 	display: flex;
-	
+	margin: 0 40px;
 }
 
 .navbar__menu__item{
@@ -158,12 +161,23 @@ p {
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-light-white);
 	cursor: pointer;
-
+}
+.navbar__menu__item:first-child {
+  border-left: none;
+}
+.navbar__menu__item:last-child {
+  border-right: 1px solid transparent;
 }
 
 .navbar__menu__item.active {
 	border-top: 1px solid var(--color-light-white);
-	border-bottom: 1px solid var(--color-light-white);
+  border-bottom: 1px solid var(--color-light-white);
+}
+.navbar__menu__item:first-child.active {
+  border-left: 1px solid var(--color-light-white);
+}
+.navbar__menu__item:last-child.active {
+  border-right: 1px solid var(--color-light-white);
 }
 
 .navbar__menu__item:after {
@@ -622,22 +636,26 @@ p {
 	#navbar {
 		flex-direction: column;
 		align-items: flex-start;
-		
 	}
+  #navbar.ontop{
+    background: var(--color-black);
+  }
 	.navbar__menu {
 		flex-direction: column;
 		width: 100%;
 		align-items: center;
 		background-color: var(--color-black);
 		padding-bottom: 8px;
-		display: none;	
+    margin: 0;
+		display: block;	
 	}
 	
 	.navbar__menu__item {
 		width: 90%;
 		line-height: 2;
 		text-align: center;
-		padding: 0;
+	  margin: 0 auto;
+    padding: 0;
 		border: 0;
 		margin-bottom: 4px;
 		border-radius: var(--border-radius);
@@ -647,7 +665,11 @@ p {
 		border: 0;
 		background-color: var(--color-light-blue);
 	}
-	
+	.navbar__menu__item:first-child.active,
+  .navbar__menu__item:last-child.active {
+    border: 0;
+  }
+  
 	.navbar__menu__item:after{
 		display: none;
 	}
@@ -706,9 +728,8 @@ p {
 		width: 14px;
 		height: 14px;
 		line-height: 14px;
-		right: 5px;
 	}
-	
+
 	/* Testimonials */
 	
 	.friend, .friend:last-child {
