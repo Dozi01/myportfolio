@@ -24,11 +24,11 @@ const contactBtn = document.querySelector('#home button');
 
 // responsive web에서 sectionYPosition이 정상적이지 않은 오류가 있음.
 for(var i = 0; i < section.length; i++){
-  var rect = section[i
-                    ].getBoundingClientRect();
+  var rect = section[i].getBoundingClientRect();
   sectionYPosition[i] = rect.top + window.scrollY - 100;
 }
-
+  // YPosition for section 'contact'
+  sectionYPosition[5] = 4100;
 
 document.addEventListener('scroll', () => {
   if(window.scrollY > navbarHeight)
@@ -36,12 +36,15 @@ document.addEventListener('scroll', () => {
   else
     navbar.classList.toggle('ontop', true);
   
+  
   homeContainer.style.opacity = 1 - window.scrollY/homeContainerHeight;
     
+  
   if(window.scrollY > 300)
     arrowBtn.style.transform = 'none';
   else
     arrowBtn.style.transform = 'translatey(100px)';
+  
   
   for(var i = 0; i < section.length; i++){
     const navbarMenuActive = document.querySelector('.navbar__menu__item.active');
@@ -49,12 +52,10 @@ document.addEventListener('scroll', () => {
       navbarMenuActive.classList.toggle('active', false);
       navbarMenuItem[i].classList.toggle('active', true);
     }
-    else if(window.scrollY >= 4100){
-      navbarMenuActive.classList.toggle('active', false);
-      navbarMenuItem[5].classList.toggle('active', true);
-    }
   }
-
+  
+  
+  navbarMenu.classList.toggle('open', false);
 });
 
 
@@ -96,7 +97,6 @@ categoryBtn.addEventListener('click', () => {
   }
   projectContainer.setAttribute('data-filter', filter);
   
-  
   let platform;
   window.setTimeout(function(){ 
     project.forEach((project) => {
@@ -122,6 +122,13 @@ categoryBtn.addEventListener('click', () => {
   },150);
 });
 
+// navbar toggle btn for small screen
+
+const toggleBtn = document.querySelector('.navbar__toggle-btn');
+
+toggleBtn.addEventListener('click', (e)=>{
+  navbarMenu.classList.toggle('open');
+});
 
 
 
