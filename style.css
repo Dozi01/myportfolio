@@ -640,7 +640,7 @@ p {
 	
 	:root {
 	/* Font size */
-	--font-large: 40px;
+	--font-large: 30px;
 	--font-medium: 24px;
 	--font-regular: 18px;
 	--font-small: 14px;
@@ -650,6 +650,7 @@ p {
   section {
     min-height: unset;
   }
+  
   
 	#navbar {
 		flex-direction: column;
@@ -670,7 +671,7 @@ p {
 		display: none;	
 	}
 	
-  .navbar__menu. {
+  .navbar__menu.open {
     display: flex;
   }
   
@@ -747,13 +748,11 @@ p {
 	.plan__categories {
 		width: auto;
 	}
+  .category__btn:hover .category__count, 
+  .category__btn.active .category__count {
+    top: 3px;
+  }
 	
-	.category__count {
-		width: 14px;
-		height: 14px;
-		line-height: 14px;
-	}
-
 	/* Testimonials */
 	
 	.friend, .friend:last-child {
@@ -771,7 +770,38 @@ p {
 
 
 
+@media all and (max-width:767px){
+  :root {
+	/* Font size */
+	--font-large: 30px;
+	--font-medium: 20px;
+	--font-regular: 16px;
+	--font-small: 14px;
+	--font-micro: 12px;
+	}
+  
+  section {
+    padding: 16px;
+  }
+  .skills__container, .friends__container, .contact__container{
+    padding: 16px;
+  }
+  
+  .profile_img {
+    width: 250px;
+    height: 250px;
+    margin: 70px 0;
+  }
+  
+  .category__count {
+		right: -5px;
+	}
+  .category__btn:hover .category__count, 
+  .category__btn.active .category__count {
+    top: -5px;
+  }
 
+}
 
 
 
