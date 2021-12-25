@@ -51,35 +51,48 @@ arrowbtn.addEventListener('click', () => {
 
 const categorybtn = document.querySelector('.plan__categories');
 const project = document.querySelectorAll('.project');
+const projectcontainer = document.querySelector('.work__projects');
 
 
 categorybtn.addEventListener('click', () => {
   const target = event.target;
   
-  if(target == categorybtn){
+  if(target === categorybtn){
     return;
   }
+
   
   const projectmenu = target.dataset.projectmenu;
   let platform;
 
-  for(var i = 0; i < project.length; i++){
-    platform = project[i].dataset.platform;
-    if(projectmenu == platform){
-      project[i].classList.toggle('active', true);
+  projectcontainer.style.transform = 'scale(0)';
+  window.setTimeout(function(){ 
+    for(var i = 0; i < project.length; i++){
+      platform = project[i].dataset.platform;
+      if(projectmenu === platform){
+        project[i].classList.toggle('invisible', false);
+      }
+      else if(projectmenu ==='all'){
+        project[i].classList.toggle('invisible', false);
+      }
+      else{
+        project[i].classList.toggle('invisible', true);
+      }
     }
-    else if(projectmenu =='all'){
-      project[i].classList.toggle('active', true);
-    }
-    else{
-      project[i].classList.toggle('active', false);
-    }
-  }
+  },150); // timed to match animation-duration
+  
   
   // Make categorybtn active 
   const categorybtnactive = document.querySelector('.category__btn.active');
   categorybtnactive.classList.toggle('active');
   target.classList.toggle('active');
+  
+  // projects animation
+  window.setTimeout(function(){
+     projectcontainer.style.transform = 'scale(1)';
+  },150); // timed to match animation-duration
+  
+  console.log(projectcontainer);
   
 });
 
@@ -90,7 +103,7 @@ function scrollIntoView (selector) {
   
   const link = selector.dataset.link;
   
-  if (link == null){
+  if (link === null){
     return;
   }
   

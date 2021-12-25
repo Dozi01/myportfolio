@@ -431,7 +431,6 @@ p {
 	justify-content: center;
 	align-items: center;
   transition: all var(--animation-duration) ease;
-  opacity: 1;
 }
 
 .work__projects h3{
@@ -443,12 +442,12 @@ p {
 	width: 250px;
 	margin: 12px;
 	position: relative;
-	display: none;
-
+	display: block;
+  transition: all var(--animation-duration) ease;
 }
 
-.project.active {
-  display: block;
+.project.invisible {
+  display: none;
 }
 
 .project img{
