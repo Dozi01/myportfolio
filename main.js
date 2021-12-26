@@ -1,69 +1,76 @@
 'use strict'
 
 
-// Make navbar transparent on the top
+
 const navbar = document.querySelector('#navbar');
-const navbarHeight = navbar.getBoundingClientRect().height;
+let navbarHeight = navbar.getBoundingClientRect().height;
+const navbarMenu = document.querySelector('.navbar__menu');
+const navbarMenuItems = document.querySelectorAll('.navbar__menu__item');
+const toggleBtn = document.querySelector('.navbar__toggle-btn');
 
-// Make homeContainer slowly fade down as the window scrolls down
-const homeContainer = document.querySelector('.home__container');
-const homeContainerHeight = homeContainer.getBoundingClientRect().height;
+const sections = document.querySelectorAll('section');
 
-// Make arrowBtn show when as the window scrolls down
+const contactBtn = document.querySelector('#home button');
+const categoryBtn = document.querySelector('.plan__categories');
+const project = document.querySelectorAll('.project');
+const projectContainer = document.querySelector('.work__projects');
+
 const arrowBtn = document.querySelector('.arrow__btn');
 
 // Make navbar menu interact as the window scrolls down
-const section = document.querySelectorAll('section');
-const sectionYPosition = [];
+// intersection observer 을 이용해 구현해보자.
 
-// Make navbar item, contactBtn, arrowBtn point each section
-const navbarMenu = document.querySelector('.navbar__menu');
-const navbarMenuItem = document.querySelectorAll('.navbar__menu__item');
-const contactBtn = document.querySelector('#home button');
-
-
-// responsive web에서 sectionYPosition이 정상적이지 않은 오류가 있음.
-for(var i = 0; i < section.length; i++){
-  var rect = section[i].getBoundingClientRect();
-  sectionYPosition[i] = rect.top + window.scrollY - 100;
+const observeOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.7,
 }
-  // YPosition for section 'contact'
-  sectionYPosition[5] = 4100;
+
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting === true){
+      let sectionId = entry.target.id;
+      let navbarMenuLink;
+      navbarMenuItems.forEach(navbarMenuItem => {
+        navbarMenuLink = navbarMenuItem.dataset.link;
+        if('#'+sectionId === navbarMenuLink){
+          navbarMenuItem.classList.add('active');
+        }
+        else{
+          navbarMenuItem.classList.remove('active');
+        }
+      });
+    }
+
+  });
+};
+
+let observer = new IntersectionObserver(callback, observeOptions);
+sections.forEach(section => observer.observe(section));
+
+
 
 document.addEventListener('scroll', () => {
+  // Make navbar transparent on the top
   if(window.scrollY > navbarHeight)
     navbar.classList.toggle('ontop', false);
   else
     navbar.classList.toggle('ontop', true);
   
-  
-  homeContainer.style.opacity = 1 - window.scrollY/homeContainerHeight;
-    
-  
+  // Make arrowBtn show when as the window scrolls down  
   if(window.scrollY > 300)
     arrowBtn.style.transform = 'none';
   else
     arrowBtn.style.transform = 'translatey(100px)';
   
   
-  for(var i = 0; i < section.length; i++){
-    const navbarMenuActive = document.querySelector('.navbar__menu__item.active');
-    if(window.scrollY >= sectionYPosition[i]){
-      navbarMenuActive.classList.toggle('active', false);
-      navbarMenuItem[i].classList.toggle('active', true);
-    }
-  }
-  
-  
+  // Make navbarMenu disappear when you scroll in small screen
   navbarMenu.classList.toggle('open', false);
 });
 
 
 
-
-
 // Make navbar item, contactBtn, arrowBtn point each section
-
 navbarMenu.addEventListener('click', () => {
   scrollIntoView(event.target);
 });
@@ -78,26 +85,19 @@ arrowBtn.addEventListener('click', () => {
 
 
 // Make project button filter projects
-
-const categoryBtn = document.querySelector('.plan__categories');
-const project = document.querySelectorAll('.project');
-const projectContainer = document.querySelector('.work__projects');
-
-
 categoryBtn.addEventListener('click', () => {
   const target = event.target;
-  if(target === categoryBtn){
-    return;
-  }
-  
   const filterNow = projectContainer.dataset.filter;
   const filter = target.dataset.filter;
-  if(filter === filterNow){
+  let platform;
+  
+  if(target === categoryBtn || filter === filterNow){
     return;
   }
+  
   projectContainer.setAttribute('data-filter', filter);
   
-  let platform;
+  
   window.setTimeout(function(){ 
     project.forEach((project) => {
       platform = project.dataset.platform;
@@ -122,23 +122,19 @@ categoryBtn.addEventListener('click', () => {
   },150);
 });
 
+
 // navbar toggle btn for small screen
-
-const toggleBtn = document.querySelector('.navbar__toggle-btn');
-
 toggleBtn.addEventListener('click', (e)=>{
   navbarMenu.classList.toggle('open');
 });
 
 
 
+// funcions
+
 function scrollIntoView (selector) {
-  
   const link = selector.dataset.link;
-  
-  if (link === null){
-    return;
-  }
+  if (link === null){return;}
   
   const scrollTo = document.querySelector(link);
   scrollTo.scrollIntoView({behavior:"smooth"});
