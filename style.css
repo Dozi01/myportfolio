@@ -530,7 +530,8 @@ p {
 }
 
 .mention {
-	margin-top: 40px;
+
+  padding: 40px;
 }
 
 
@@ -538,15 +539,15 @@ p {
 	display: flex;
 }
 
-.friend:last-child{
+.friend:nth-child(even){
 	flex-direction: row-reverse;
 }
 
 
 .friend__avatar{
-	width: 200px;
-	height: 200px;
-	margin: 20px;
+	width: 150px;
+	height: 150px;
+	margin: 8px;
 	border-radius: 50%;
 	box-shadow: 5px 5px 10px var(--color-black);
   object-fit: cover;
@@ -554,7 +555,7 @@ p {
 
 .friend__speech-bubble {
 	padding: 20px;
-	margin: 20px;
+	margin: 8px;
 	border: 2px solid var(--color-grey);
 	background-color: var(--color-light-white);
 	border-radius: var(--border-radius-large);
