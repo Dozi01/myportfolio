@@ -757,7 +757,7 @@ p {
 	
 	/* Testimonials */
 	
-	.friend, .friend:last-child {
+	.friend, .friend:nth-child(even) {
 		flex-direction: column;
 		align-items: center;
 		margin-bottom: 20px;
