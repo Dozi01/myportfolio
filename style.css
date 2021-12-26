@@ -549,6 +549,7 @@ p {
 	margin: 20px;
 	border-radius: 50%;
 	box-shadow: 5px 5px 10px var(--color-black);
+  object-fit: cover;
 }
 
 .friend__speech-bubble {
